@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sureshot Prediction</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1615978340233827');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1615978340233827&ev=PageView&noscript=1"/>
+  </noscript>
+  <style>
+    *{box-sizing:border-box}
+    html{min-height:100%;background:#07080d}
+    body{
+      margin:0;font-family:Inter,Arial,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(212,175,55,.18), transparent 28%),
+        radial-gradient(circle at 85% 90%, rgba(123,92,255,.16), transparent 30%),
+        linear-gradient(145deg,#05060a 0%,#10131b 48%,#05060a 100%);
+      color:#f8f7f2;min-height:100vh;
+      display:flex;align-items:center;justify-content:center;
+      padding:22px;overflow:hidden;position:relative
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent)
+    }
+    .card{
+      width:100%;max-width:540px;position:relative;
+      background:linear-gradient(160deg,rgba(24,27,37,.96),rgba(9,10,15,.97));
+      border:1px solid rgba(212,175,55,.28);
+      border-radius:28px;padding:38px 26px 30px;
+      box-shadow:0 28px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);
+      text-align:center;backdrop-filter:blur(18px)
+    }
+    .card:before{
+      content:"";position:absolute;inset:0;border-radius:28px;pointer-events:none;
+      background:linear-gradient(135deg,rgba(255,255,255,.07),transparent 32%,rgba(212,175,55,.04))
+    }
+    .badge{
+      display:inline-block;padding:9px 15px;border-radius:999px;
+      border:1px solid rgba(212,175,55,.4);
+      background:rgba(212,175,55,.09);color:#f0d477;
+      font-weight:800;font-size:12px;letter-spacing:1.5px
+    }
+    h1{
+      font-size:42px;line-height:1.08;margin:20px 0 11px;
+      letter-spacing:-1.2px;
+      background:linear-gradient(90deg,#fff,#f0d477,#fff);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .sub{font-size:16px;line-height:1.6;color:#b8bdc9;margin:0}
+    .points{text-align:left;margin:28px 0 24px}
+    .point{
+      padding:15px 16px;margin:9px 0;border:1px solid rgba(255,255,255,.07);
+      border-radius:14px;background:rgba(255,255,255,.035);
+      color:#e9ebf0;font-weight:650;box-shadow:inset 0 1px 0 rgba(255,255,255,.025)
+    }
+    .join{
+      width:100%;border:0;border-radius:15px;padding:17px;
+      background:linear-gradient(135deg,#e6c45c,#b88b22);
+      color:#090a0d;font-size:18px;font-weight:900;letter-spacing:.2px;
+      cursor:pointer;box-shadow:0 12px 30px rgba(190,145,38,.28);
+      transition:transform .15s ease,filter .15s ease
+    }
+    .join:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .join:active{transform:translateY(1px)}
+    .count{margin-top:15px;color:#aeb3bf;font-size:13px}
+    .small{margin-top:20px;font-size:11px;color:#747b88;line-height:1.55}
+    @media(max-width:420px){
+      .card{padding:31px 19px 25px;border-radius:23px}
+      h1{font-size:35px}.point{font-size:14px}
+    }
+
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">SURESHOT PREDICTION</span>
+    <h1>3-Level Strategy</h1>
+    <p class="sub">
+      Smart entry • Controlled risk • Consistent execution
+    </p>
+
+    <section class="points">
+      <div class="point">🎯 Structured 3-Level Strategy</div>
+      <div class="point">⚡ Timely signals and analysis</div>
+      <div class="point">📲 Updates delivered through Telegram</div>
+    </section>
+
+    <button class="join" id="joinBtn">Join Telegram</button>
+    <div class="count" id="count">Redirecting to Telegram in 3 seconds…</div>
+
+    <div class="small">
+      Information is provided for informational purposes only. Outcomes are not guaranteed.
+    </div>
+  </main>
+
+  <script>
+    const telegramUrl = "https://t.me/+s4WfY0fr_KhiMDM1";
+    const btn = document.getElementById("joinBtn");
+    const count = document.getElementById("count");
+
+    let seconds = 3;
+    let redirected = false;
+
+    function redirectToTelegram() {
+      if (redirected) return;
+      redirected = true;
+
+      // Track the CTA as a Lead event.
+      if (typeof fbq === "function") {
+        fbq("track", "Lead");
+      }
+
+      window.location.href = telegramUrl;
+    }
+
+    btn.addEventListener("click", redirectToTelegram);
+
+    const timer = setInterval(() => {
+      seconds--;
+      if (seconds > 0) {
+        count.textContent = `Redirecting to Telegram in ${seconds} seconds…`;
+      } else {
+        clearInterval(timer);
+        redirectToTelegram();
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
